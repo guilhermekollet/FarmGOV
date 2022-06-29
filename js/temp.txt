@@ -1,0 +1,161 @@
+    for(let i=1; i < dataArray.length; i++){
+            for(let i=1; i < 2; i++){
+
+function readData(data){ 
+ 
+    //declaração de variável local que armazena um array de dados da quebra de linha
+    let dataArray = data.split('\r\n');
+
+    let dataArrayAux = new Array;
+    
+    for(let i=1; i < dataArray.length; i++){
+
+    //construção da posição da apresentação
+    let dataApresentacao = dataArray[i].split("\"");
+
+    if(dataApresentacao.length == 1){
+        data_csv.push(dataApresentacao[0].split(';'));
+
+    } else if(dataApresentacao.length == 3){
+        //remoção da posição vazia do vetor
+        dataApresentacao.splice(0, 1);
+
+
+        //substituir todos os pontos e vírgulas da apresentação por espaço
+        dataApresentacao[0] = dataApresentacao[0].replaceAll(";"," ");
+
+        dataArrayAux[0] = dataApresentacao[0];
+
+        dataApresentacao[1] = dataApresentacao[1].split(';');
+        dataApresentacao[1][0] = dataArrayAux[0];
+        dataApresentacao.splice(0, 1);
+        //console.log(dataApresentacao);
+        
+        data_csv.push(dataApresentacao);
+    }
+}
+console.log(data_csv);
+
+    //dataApresentacao = dataApresentacao.toString();
+    //dataApresentacao = dataApresentacao.replaceAll(";"," ");
+    //dataApresentacao = dataApresentacao.replaceAll("\"","");
+    //dataApresentacao.split(';');
+    
+
+    //cabeçalho
+    data_tittle = dataArray[0].split(';');
+    //console.log(data_tittle);
+
+    
+ 
+}
+
+text += ProdutosCSV[i][0] + ";";
+            text += ProdutosCSV[i][8] + ";";
+            text += ProdutosCSV[i][9] + ";";
+            text += ProdutosCSV[i][13];
+            resultadoSearch.push(text.split(";"));
+
+text += ProdutosCSV[PosPmcAlto][0] + ";";
+    text += ProdutosCSV[PosPmcAlto][8] + ";";
+    text += ProdutosCSV[PosPmcAlto][9] + ";";
+    text += ProdutosCSV[PosPmcAlto][13];
+    resultadoSearch.push(text.split(";"));
+
+    text = "";
+
+    text += ProdutosCSV[PosPmcBaixo][0] + ";";
+    text += ProdutosCSV[PosPmcBaixo][8] + ";";
+    text += ProdutosCSV[PosPmcBaixo][9] + ";";
+    text += ProdutosCSV[PosPmcBaixo][13];
+    resultadoSearch.push(text.split(";"));
+    console.log(resultadoSearch);
+
+    console.log(`PMC +ALTO: posição ${PosPmcAlto} de valor ${pmcAlto}`);
+    console.log(ProdutosCSV[PosPmcAlto]);
+    console.log(`PMC +BAIXO: posição ${PosPmcBaixo} de valor ${pmcBaixo}`);
+    console.log(ProdutosCSV[PosPmcBaixo])
+
+     if(parseFloat(ProdutosCSV[i][23]) > pmcAlto){
+                PosPmcAlto = i;
+                pmcAlto = ProdutosCSV[i][23];
+            } else if(parseFloat(ProdutosCSV[i][23]) < pmcBaixo) {
+                PosPmcBaixo = i;
+                pmcBaixo = ProdutosCSV[i][23];
+            }  
+
+            dataApresentacao[1] = dataApresentacao[1].split(';');
+        dataArrayAux[0] = dataApresentacao[0];
+        dataApresentacao[1][0] = dataArrayAux[0];
+
+
+        dataApresentacao.splice(0, 1);
+
+        //substituir todos os pontos e vírgulas da apresentação por espaço
+        dataApresentacao[0] = dataApresentacao[0].replaceAll(";"," ");
+        dataArrayAux[0] = dataApresentacao[0];
+        dataApresentacao[1] = dataApresentacao[1].split(';');
+        dataApresentacao[1][0] = dataArrayAux[0];
+        dataApresentacao.splice(0, 1);
+
+        dataApresentacao[1] = dataApresentacao[1].split(';');
+        dataApresentacao[0][9] = dataApresentacao[1][0];
+
+        dataApresentacao[0].push(dataApresentacao[7].split(';'));
+
+        if(ProdutosCSV[length-1] == ){
+        ProdutosCSV.pop();
+        if(dataApresentacao[0].length == 40){
+            ProdutosCSV.push(dataApresentacao[0]);
+            console.log("Push");
+        } else {
+            console.log(dataApresentacao);
+        }
+    }
+
+    for(let i=1; i< dataApresentacao[0].length; i++){
+                dataApresentacao[0].push(dataApresentacao[1][i]);
+            }
+
+//algoritmo de verificação de push or not push
+        if(dataApresentacao[0].length == 40) { 
+            push++;
+        } else {
+            console.log(dataApresentacao[0]);
+            notPush++;
+        }
+
+        7897595602169
+        82FFB5
+
+         let tdNome = document.createElement("td");
+                tdNome.classList.add("row-td");
+                tdNome.textContent = obj[i][0];
+
+                let tdProduto = document.createElement("td");
+                tdProduto.classList.add("row-td");
+                tdProduto.textContent = obj[i][1];
+
+                let tdApresentacao = document.createElement("td");
+                tdApresentacao.classList.add("row-td");
+                tdApresentacao.textContent = obj[i][2];
+
+                let tdPF = document.createElement("td");
+                tdPF.classList.add("row-td");
+                tdPF.textContent = obj[i][3];
+
+                tr.appendChild(tdNome);
+                tr.appendChild(tdProduto);
+                tr.appendChild(tdApresentacao);
+                tr.appendChild(tdPF);
+
+                tableBody.appendChild(tr);
+
+if(statusFind) {
+        if(showConsole) console.log(resultadoSearch);
+        createTable(resultadoSearch);
+
+    } else {
+        uxResultError();
+        
+    }

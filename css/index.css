@@ -1,0 +1,276 @@
+:root{
+    --white-bg: #FFFFFF;
+    --hot-pink: #FF006B;
+    --stroke-pink: #E70061;
+    --green-done: #009016;
+    --stroke-green-done: #006921;
+    --black: #000;
+    --gray-text: #6D6D6D;
+    --gray-bg: #CCCCCC;
+    --fonte-roboto: 'Roboto';
+    --fonte-sora: 'Sora';
+    --border: 4px;
+}
+
+*{
+	box-sizing: border-box;
+    font-family: var(--fonte-sora);
+ }
+ 
+.container{
+    width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+body{ 
+	font-size: 14px;
+	
+}
+
+.header{
+    height: 20em;
+}
+
+.header-logo{
+    position:absolute;
+    width: 240px;
+    height: 56px;
+    left: 177px;
+    top: 94px;
+
+}
+
+#container-consultar{
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 80px 140px 120px;
+}
+
+#consultar-label{
+	color: #121212;
+	display: block;
+	padding-bottom: 5px;
+}
+
+.consultar-input{
+	grid-column-start: 1;
+  	grid-column-end: 2;
+	border: 1px solid #ccc;
+    border-radius: var(--border);
+	padding: .9em 1em;
+	font-size: 1em;
+    margin-right: 4px;
+
+}
+
+/* Modelo de Botão */
+.consultar-button{
+    padding: .9em 1em;
+    font-size: 1em;
+    cursor: pointer;	
+    color: #fff;
+    background-color:var(--hot-pink);
+    border-color: var(--stroke-pink);
+    display:inline-block;
+    clear: both;
+    border-radius: var(--border);
+    margin-right: 4px;
+    transition: all 200ms;
+
+}
+
+.consultar-button:active{
+    background-color: var(--stroke-pink);
+    transition: all 150ms;
+
+}
+
+/* Botão de Buscar */
+.buscar{
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+}
+
+/* Botão de Ver Relatório */
+.relatorio{
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+
+.importar{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    margin-right: 0px;
+
+}
+
+#consultar-import[disabled]{
+    cursor: default;	
+    color: #fff;
+    background-color: var(--gray-bg);
+    border: none;
+    display:inline-block;
+    transition: all 200ms;
+    text-align: center;
+}
+
+#openFile{
+    display: none;
+}
+
+#line{
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0px;
+
+}
+
+#line-result{
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0px;
+}
+
+.disabled{
+    display: none;
+}
+
+.attention_import{
+    animation-name: animate_ux_import;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+}
+
+#Output{
+	color: #fff;
+	opacity: 0;
+	background-color: rgb(255, 255, 255);
+	font-size: 1.2em;
+	padding: 0px;
+    grid-column-start: 1;
+  	grid-column-end: 5;
+}
+
+#Output.done{
+	transition: all, 1500ms;
+	color: #fff;
+	background-color: var(--green-done);
+	font-size: 1.2em;
+	padding: 10px;
+	border-radius: 8px;
+	margin-top: 10px;
+	opacity: 100;
+    grid-column-start: 1;
+  	grid-column-end: 5;
+	
+}
+
+#Output.remove{
+	transition: all, 1500ms;
+	color: #fff;
+	background-color: rgb(255, 255, 255);
+	font-size: 0em;
+	padding: 0px;
+	border-radius: var(--border);
+	margin-top: 0px;
+	opacity: 0;
+    grid-column-start: 1;
+  	grid-column-end: 5;
+}
+
+#Output.error{
+	transition: all, 1500ms;
+	color: #fff;
+	background-color: rgb(146, 0, 0);
+	font-size: 1.2em;
+	padding: 10px;
+	border-radius: var(--border);
+	margin-top: 10px;
+	opacity: 100;
+	
+}
+
+#consulta-table-name, #consulta-table-ean{
+    table-layout: fixed;
+}
+
+
+@keyframes animate_ux_import {
+    0% {
+        background: #C10051;
+
+    }
+    50% {
+        background: #FF006B;
+
+    }
+    100% {
+        background: #C10051;
+
+    }
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;
+	margin-bottom : .5em;
+    font-family: var(--fonte-sora);
+    vertical-align: center;
+    font-weight: bold;
+}
+
+.row-th{
+    border: 1px solid #ccc;
+	background-color: #EEE;
+	padding: .7em;
+	text-align: center;
+    
+    
+}
+
+.row-td{
+    width: 100%;
+    padding: .7em;
+    word-wrap: break-word;
+    text-align: center;
+    border: 1px solid #ccc;
+
+}
+
+td{
+    border: 1px solid #ccc;
+    padding: .7em;
+    vertical-align:  middle;
+    font-weight: 300;
+}
+
+.rows-tr-content{
+    padding: .7em;
+	margin: 0;
+	text-align: center;
+	border: 1px solid #ccc;
+    padding: 0.7em;
+}
+
+.row-td--graphic{
+    text-align: start;
+}
+
+#line-bottom-table, #line-top-table{
+	border-bottom: 1px solid #ccc;
+	margin: 10px 0px;
+}
+
+#consulta-response{
+    font-family: var(--fonte-sora);
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#consultar-button[disabled], #consultar-relatorio[disabled]{
+    background-color: var(--gray-bg);
+    border: none;
+    color: white;
+    cursor: default;
+}

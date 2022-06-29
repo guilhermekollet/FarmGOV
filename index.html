@@ -1,104 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<meta charset="UTF-8">
-		<title>SIB - Bolsistas</title>
+
+		<meta charset="utf-8"/>
+		
+		<title>Farm+GOV</title>
 
 		<link rel="icon" href="img\Favicon.ico" type="image/x-icon">
 
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<link rel="stylesheet" type="text/css" href="css/input.css">
-		<link rel="stylesheet" type="text/css" href="css/buttons.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Sora:wght@400;500;700&display=swap" rel="stylesheet">
 
-		<script defer src="js/encrypt.js"></script>
-		<script defer src="js/search.js"></script>
-		<script defer src="js/object.js"></script>
-		<script defer src="js/head.js"></script>
-		<script defer src="js/script.js"></script>
+		<script defer src="js/software.js"></script>
 
 	</head>
 	<body>
 
-		<header class="grid-header">
+		<header class="header">
 
-			<div class="container">
-				<h1 class="tittle"></h1>
-			</div>
+				<img src="img/Logo.svg" alt="Logo" class="header-logo"></img>
 			
 		</header>
 		
 		<main>
 			
-
-
 			<section class="container">
+	
+				<div id="line" class=""></div>
 
-				<h2 class="subtittle">Sistema Integrado do Bolsista</h2>
-					
-				<div class="line"></div>
+				<form id="container-consultar">
 
-				<form id="form_filtra">
+					<label id="consultar-label" for="input">Pesquisar</label>
+					<input class="consultar-input" name="input" type="text" placeholder="Insira o nome ou código de barras do medicamento">
+					<button id="consultar-button" class="consultar-button buscar" disabled>Buscar</button>
+					<button id="consultar-relatorio" class="consultar-button relatorio" disabled>Ver Relatório</button>	
+					<button id="consultar-import" class="consultar-button importar attention_import">Importar</button>					
+					<input class="consultar-scan" type="file" id="openFile" accept=".csv">
 
-					<label for="input_scan">Pesquisar</label>
-					<input id="input_scan" name="input_scan" type="text" placeholder="Insira dados aqui">
-					<button id="button_scan" class="filtro" disabled>Buscar</button>
-					<button id="button_ranking" class="filtro" disabled>Ranking</button>
-					<button id="button_import" class="attention_import">Importar</button>
-					<input type="file" id="open_file" accept=".csv">						
-					
 				</form>
 
 				<pre id="Output"></pre>
+		
+			</section>		
 
-				<div id="Special-line" class="line disabled"></div>
+			<section class="container">
 
-				<section id="Informations_section" class="informations disabled">
+				<div id="line-top-table" class="disabled"></div>
 
-					<div class="grid-item bolsistas">	
-							
-							<h3 class ="h3-bolsa">Bolsas</h3>
-							<h4 id="info-bolsas" class ="h4-bolsa">0</h3>
-
-					</div>
-
-					<div id="Payment-all" class="grid-item total">	
-							
-						<h3 class ="h3-pago">Total Pago</h3>
-						<h4 id="info-payments-all" class ="h4-pago">R$ 1090</h3>
-
-					</div>
-
-					<div id="Payment-media" class="grid-item media disabled">	
-							
-						<h3 class ="h3-media">Média Pago/Ano</h3>
-						<h4 id="info-payments-media" class ="h4-media">R$ 0,00</h3>
-
-					</div>
-
-				</section>
-
-				<div id="Special-line2" class="line disabled"></div>
-
-				<table id="Table_control" class="results disabled">
+				<table id="consulta-table-name" class="results disabled">
 					
 					<thead>
 						
-						<tr class="results-tr">
+						<tr class="rows-tr">
 
-							<th class="results-th">Nome</th>
-							<th class="results-th">CPF</th>
-							<th class="results-th">Entidade de Ensino</th>
-							<th class="results-th">Valor da Bolsa</th>
+							<th class="row-th">Nome</th>
+							<th class="row-th">Produto</th>
+							<th class="row-th">Apresentação</th>
+							<th class="row-th">PF sem Imposto</th>
 							
 						</tr>
 
 					</thead>
-					<tbody id="tabela-aluno">
+					<tbody id="consulta-content-name">
 
 					</tbody>
 
 				</table>
+				<table id="consulta-table-ean" class="results disabled">
+					
+					<thead>
+						
+						<tr class="rows-tr">
+
+							<th class="row-th">EAN</th>
+							<th class="row-th">Produto</th>
+							<th class="row-th">PF Sem Imposto</th>
+							<th class="row-th">Preço Máximo</th>
+							<th class="row-th">Preço mais Baixo</th>
+							<th class="row-th">Diferença</th>
+							
+						</tr>
+
+					</thead>
+					<tbody id="consulta-content-ean">
+						
+					</tbody>
+
+				</table>
+				<table id="consulta-table-report" class="results disabled">
+					
+					<thead>
+						
+						<tr class="rows-tr">
+
+							<th class="row-th">Classificação</th>
+							<th class="row-th">Percentual</th>
+							<th class="row-th">Gráfico</th>
+							
+						</tr>
+
+					</thead>
+					<tbody id="consulta-content-report">
+						
+					</tbody>
+
+				</table>
+
+				<div id="line-bottom-table" class="disabled"></div>
+				<output id="consulta-response" class="disabled"></output>
 
 			</section>
 			
